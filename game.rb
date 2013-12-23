@@ -2,6 +2,9 @@ class Game
 	attr_reader :frames
 
 	def initialize
-		@frames
+		@frames = []
+		10.times do
+			frames << Frame.new
+		end
 	end
 end
