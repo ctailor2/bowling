@@ -12,4 +12,14 @@ describe Frame do
 			expect(frame).to respond_to(:pins)
 		end
 	end
+
+	describe "#rolls" do
+		it "is a collection" do
+			expect(frame.rolls).to be_a(Array)
+		end
+
+		it "is empty to start" do
+			expect(frame.rolls).to be_empty
+		end
+	end
 end

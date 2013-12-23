@@ -2,7 +2,7 @@ class Frame
 	attr_reader :rolls, :pins
 
 	def initialize
-		@rolls
+		@rolls = []
 		@pins
 	end
 end
