@@ -22,4 +22,10 @@ describe Frame do
 			expect(frame.rolls).to be_empty
 		end
 	end
+
+	describe "#pins" do
+		it "starts at 10" do
+			expect(frame.pins).to eq(10)
+		end
+	end
 end

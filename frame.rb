@@ -3,6 +3,6 @@ class Frame
 
 	def initialize
 		@rolls = []
-		@pins
+		@pins = 10
 	end
 end
