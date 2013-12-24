@@ -270,5 +270,10 @@ describe Frame do
 			frame.apply_bonus
 			expect(frame.max_rolls).to eq(3)
 		end
+
+		it "activates autoreset" do
+			frame.apply_bonus
+			expect(frame.autoreset).to be_true
+		end
 	end
 end

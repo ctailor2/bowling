@@ -67,5 +67,6 @@ class Frame
 
 	def apply_bonus
 		self.max_rolls = 3
+		self.autoreset = true
 	end
 end
