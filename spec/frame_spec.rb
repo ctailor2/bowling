@@ -23,6 +23,10 @@ describe Frame do
 		it "responds to #active" do
 			expect(frame).to respond_to(:active)
 		end
+
+		it "responds to #pin_set_roll_count" do
+			expect(frame).to respond_to(:pin_set_roll_count)
+		end
 	end
 
 	describe "#rolls" do
@@ -66,6 +70,12 @@ describe Frame do
 	describe "#active" do
 		it "starts as active" do
 			expect(frame.active).to be_true
+		end
+	end
+
+	describe "#pin_set_roll_count" do
+		it "starts at 0" do
+			expect(frame.pin_set_roll_count).to eq(0)
 		end
 	end
 
