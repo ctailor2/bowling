@@ -158,6 +158,56 @@ describe Game do
 				end
 			end
 
+			describe "on the last frame" do
+				context "when there is a strike" do
+					describe "when the 2nd roll is also a strike" do
+						it "correctly sets the frame's score" do
+							Kernel.stub(:rand).and_return(10, 10, 5)
+							frame = game.frames.last
+							frame.roll
+							frame.roll
+							frame.roll
+							game.score_frame(9)
+							expect(frame.score).to eq(25)
+						end
+					end
+
+					describe "when the 2nd roll is not a strike" do
+						it "correctly sets the frame's score" do
+							Kernel.stub(:rand).and_return(10, 5, 5)
+							frame = game.frames.last
+							frame.roll
+							frame.roll
+							frame.roll
+							game.score_frame(9)
+							expect(frame.score).to eq(20)
+						end
+					end
+				end
+
+				context "when there is a spare" do
+					it "correctly sets the frame's score" do
+						Kernel.stub(:rand).and_return(7, 3, 7)
+						frame = game.frames.last
+						frame.roll
+						frame.roll
+						frame.roll
+						game.score_frame(9)
+						expect(frame.score).to eq(17)
+					end
+				end
+
+				context "when there is neither a strike nor a spare" do
+					it "correctly sets the frame's score" do
+						Kernel.stub(:rand).and_return(6, 1)
+						frame = game.frames.last
+						frame.roll
+						frame.roll
+						game.score_frame(9)
+						expect(frame.score).to eq(7)
+					end
+				end
+			end
 		end
 	end
 end
