@@ -11,6 +11,10 @@ describe Frame do
 		it "responds to pins" do
 			expect(frame).to respond_to(:pins)
 		end
+
+		it "responds to bonus" do
+			expect(frame).to respond_to(:bonus)
+		end
 	end
 
 	describe "#rolls" do
@@ -26,6 +30,22 @@ describe Frame do
 	describe "#pins" do
 		it "starts at 10" do
 			expect(frame.pins).to eq(10)
+		end
+	end
+
+	describe "#bonus" do
+		context "when bonus is not specified" do
+			specify "is false" do
+				expect(frame.bonus).to be_false
+			end
+		end
+
+		context "when bonus is specified" do
+			let(:frame) { Frame.new(true) }
+			
+			specify "is true" do
+				expect(frame.bonus).to be_true	
+			end
 		end
 	end
 
