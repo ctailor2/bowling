@@ -210,4 +210,11 @@ describe Game do
 			end
 		end
 	end
+
+	describe "#score_all_frames" do
+		it "scores all frames" do
+			expect(game).to receive(:score_frame).exactly(10).times
+			game.score_all_frames
+		end
+	end
 end

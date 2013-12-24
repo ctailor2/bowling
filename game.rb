@@ -43,4 +43,10 @@ class Game
 			end
 		end
 	end
+
+	def score_all_frames
+		frames.each_with_index do |frame, index|
+			score_frame(index)
+		end
+	end
 end
