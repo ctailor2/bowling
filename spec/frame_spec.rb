@@ -42,7 +42,7 @@ describe Frame do
 
 		context "when bonus is specified" do
 			let(:frame) { Frame.new(true) }
-			
+
 			specify "is true" do
 				expect(frame.bonus).to be_true	
 			end
@@ -53,6 +53,15 @@ describe Frame do
 		it "creates a roll in the rolls collection" do
 			frame.roll
 			expect(frame.rolls.first).to be_a(Roll)
+		end
+	end
+
+	describe "#adjust_pin_count" do
+		it "reduces the pins by the result of the last roll" do
+			Kernel.stub(:rand).and_return(7)
+			frame.roll
+			frame.adjust_pin_count
+			expect(frame.pins).to eq(3)
 		end
 	end
 end
