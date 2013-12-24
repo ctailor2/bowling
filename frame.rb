@@ -14,6 +14,7 @@ class Frame
 
 	def roll
 		rolls << Roll.new(pins)
+		routine
 	end
 
 	def adjust_pin_count
@@ -26,5 +27,10 @@ class Frame
 
 	def deactivate
 		self.active = false
+	end
+
+	def routine
+		adjust_pin_count
+		deactivate if deactivate?
 	end
 end

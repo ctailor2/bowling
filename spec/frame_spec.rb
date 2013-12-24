@@ -80,7 +80,6 @@ describe Frame do
 		it "reduces the pins by the result of the last roll" do
 			Kernel.stub(:rand).and_return(7)
 			frame.roll
-			frame.adjust_pin_count
 			expect(frame.pins).to eq(3)
 		end
 	end
@@ -91,9 +90,7 @@ describe Frame do
 				it "returns true" do
 					Kernel.stub(:rand).and_return(3)
 					frame.roll
-					frame.adjust_pin_count
 					frame.roll
-					frame.adjust_pin_count
 					expect(frame.deactivate?).to be_true
 				end
 			end
@@ -102,7 +99,6 @@ describe Frame do
 				it "returns false" do
 					Kernel.stub(:rand).and_return(3)
 					frame.roll
-					frame.adjust_pin_count
 					expect(frame.deactivate?).to be_false
 				end
 			end
@@ -111,7 +107,6 @@ describe Frame do
 				it "returns true" do
 					Kernel.stub(:rand).and_return(10)
 					frame.roll
-					frame.adjust_pin_count
 					expect(frame.deactivate?).to be_true
 				end
 			end
@@ -120,7 +115,6 @@ describe Frame do
 				it "returns false" do
 					Kernel.stub(:rand).and_return(3)
 					frame.roll
-					frame.adjust_pin_count
 					expect(frame.deactivate?).to be_false
 				end
 			end
