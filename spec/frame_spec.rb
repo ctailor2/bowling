@@ -19,6 +19,10 @@ describe Frame do
 		it "responds to #max_rolls" do
 			expect(frame).to respond_to(:max_rolls)
 		end
+
+		it "responds to #active" do
+			expect(frame).to respond_to(:active)
+		end
 	end
 
 	describe "#rolls" do
@@ -56,6 +60,12 @@ describe Frame do
 	describe "#max_rolls" do
 		it "starts at 2" do
 			expect(frame.max_rolls).to eq(2)
+		end
+	end
+
+	describe "#active" do
+		it "starts as active" do
+			expect(frame.active).to be_true
 		end
 	end
 

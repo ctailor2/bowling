@@ -2,13 +2,14 @@ require_relative 'roll'
 
 class Frame
 	attr_reader :rolls, :bonus, :max_rolls
-	attr_accessor :pins
+	attr_accessor :pins, :active
 
 	def initialize(bonus = false)
 		@rolls = []
 		@pins = 10
 		@bonus = bonus
 		@max_rolls = 2
+		@active = true
 	end
 
 	def roll
