@@ -1,7 +1,7 @@
 require_relative 'frame'
 
 class Game
-	attr_reader :frames
+	attr_reader :frames, :current_frame
 
 	def initialize
 		@frames = []
@@ -9,5 +9,7 @@ class Game
 			frames << Frame.new
 		end
 		frames << Frame.new(true)
+
+		@current_frame = frames.first
 	end
 end

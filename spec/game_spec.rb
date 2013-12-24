@@ -6,7 +6,11 @@ describe Game do
 	describe "#initialize" do
 		it "responds to #frames" do
 			expect(game).to respond_to(:frames)
-		end 
+		end
+
+		it "responds to #current_frame" do
+			expect(game).to respond_to(:current_frame)
+		end
 	end
 
 	describe "#frames" do
@@ -24,6 +28,12 @@ describe Game do
 
 		specify "last frame is bonus type" do
 			expect(game.frames.last.bonus).to be_true
+		end
+	end
+
+	describe "#current_frame" do
+		it "starts with the first frame" do
+			expect(game.current_frame).to eq(game.frames.first)
 		end
 	end
 end
