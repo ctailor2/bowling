@@ -151,7 +151,47 @@ describe Frame do
 		end
 
 		context "for bonus type frames" do
-			it "NEEDS EXAMPLES ONCE BONUS ROUTINE IMPLEMENTED"
+			let(:frame) { Frame.new(true) }
+
+			describe "when bonus is activated" do
+				context "when the number of rolls reaches max rolls" do
+					it "returns true" do
+						Kernel.stub(:rand).and_return(5)
+						frame.roll
+						frame.roll
+						frame.roll
+						expect(frame.deactivate?).to be_true
+					end
+				end
+
+				context "when the number of rolls is less than max rolls" do
+					it "returns false" do
+						Kernel.stub(:rand).and_return(5)
+						frame.roll
+						frame.roll
+						expect(frame.deactivate?).to be_false
+					end
+				end
+			end
+
+			describe "when bonus is not activated" do
+				context "when the number of rolls reaches max rolls" do
+					it "returns true" do
+						Kernel.stub(:rand).and_return(4)
+						frame.roll
+						frame.roll
+						expect(frame.deactivate?).to be_true
+					end
+				end
+
+				context "when the number of rolls is less than max rolls" do
+					it "returns false" do
+						Kernel.stub(:rand).and_return(5)
+						frame.roll
+						expect(frame.deactivate?).to be_false
+					end
+				end
+			end
 		end
 	end
 
