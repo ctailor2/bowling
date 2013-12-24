@@ -195,4 +195,30 @@ describe Frame do
 			end
 		end
 	end
+
+	describe "#reset_pins?" do
+		context "when the number of pins is 0" do
+			it "returns true" do
+				Kernel.stub(:rand).and_return(10)
+				frame.roll
+				expect(frame.reset_pins?).to be_true
+			end
+		end
+
+		context "when the number of pins is greater than 0" do
+			it "returns false" do
+				Kernel.stub(:rand).and_return(3)
+				frame.roll
+				expect(frame.reset_pins?).to be_false
+			end
+		end
+	end
+
+	describe "#reset_pins" do
+		it "resets the pins to 10" do
+			Kernel.stub(:rand).and_return(10)
+			frame.roll
+			expect{frame.reset_pins}.to change{frame.pins}.from(0).to(10)
+		end
+	end
 end

@@ -48,4 +48,12 @@ class Frame
 	def has_spare?
 		rolls.any? { |roll| roll.spare? }
 	end
+
+	def reset_pins?
+		pins == 0
+	end
+
+	def reset_pins
+		self.pins = 10
+	end
 end
