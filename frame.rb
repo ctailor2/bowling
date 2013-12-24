@@ -14,7 +14,7 @@ class Frame
 	end
 
 	def roll
-		rolls << Roll.new(pins)
+		rolls << Roll.new(pins, pin_set_roll_count)
 		routine
 	end
 
