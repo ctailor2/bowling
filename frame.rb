@@ -34,4 +34,8 @@ class Frame
 		adjust_pin_count
 		deactivate if deactivate?
 	end
+
+	def increment_pin_set_roll_count
+		self.pin_set_roll_count += 1
+	end
 end

@@ -140,4 +140,10 @@ describe Frame do
 			expect{frame.deactivate}.to change{frame.active}.from(true).to(false)
 		end
 	end
+
+	describe "#increment_pin_set_roll_count" do
+		it "increments the pin_set_roll_count by 1" do
+			expect{frame.increment_pin_set_roll_count}.to change{frame.pin_set_roll_count}.by(1)
+		end
+	end
 end
