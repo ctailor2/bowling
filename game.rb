@@ -1,3 +1,5 @@
+require_relative 'frame'
+
 class Game
 	attr_reader :frames
 
