@@ -10,7 +10,7 @@ class Frame
 		@bonus = bonus
 		@max_rolls = 2
 		@active = true
-		@pin_set_roll_count = 0
+		@pin_set_roll_count = 1
 	end
 
 	def roll

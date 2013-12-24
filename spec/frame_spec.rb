@@ -74,8 +74,8 @@ describe Frame do
 	end
 
 	describe "#pin_set_roll_count" do
-		it "starts at 0" do
-			expect(frame.pin_set_roll_count).to eq(0)
+		it "starts at 1" do
+			expect(frame.pin_set_roll_count).to eq(1)
 		end
 	end
 
