@@ -5,8 +5,9 @@ class Game
 
 	def initialize
 		@frames = []
-		10.times do
+		9.times do
 			frames << Frame.new
 		end
+		frames << Frame.new(true)
 	end
 end
