@@ -35,5 +35,17 @@ describe Game do
 		it "starts with the first frame" do
 			expect(game.current_frame).to eq(game.frames.first)
 		end
+
+		context "when the current frame is inactive" do
+			before { game.current_frame.deactivate }
+
+			it "returns the first active frame" do
+				expect(game.current_frame).to eq(game.frames[1])
+			end
+
+			it "does not return the current inactive frame" do
+				expect(game.current_frame).not_to eq(game.frames[0])
+			end
+		end
 	end
 end
