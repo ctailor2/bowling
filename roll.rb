@@ -6,4 +6,8 @@ class Roll
 		@pin_set_roll_count = pin_set_roll_count
 		@result = Kernel.rand(0..pins)
 	end
+
+	def strike?
+		result == pins && pin_set_roll_count == 1
+	end
 end

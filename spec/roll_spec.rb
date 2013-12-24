@@ -55,4 +55,39 @@ describe Roll do
 			expect(roll.pin_set_roll_count).to eq(1)
 		end
 	end
+
+	describe "#strike?" do
+		context "when result is equal to pins on the 1st roll for the pin set" do
+			it "returns true" do
+				Kernel.stub(:rand).and_return(10)
+				roll = Roll.new(10, 1)
+				expect(roll.strike?).to be_true
+			end
+		end
+
+		context "when result is not equal to pins on the 1st roll for the pin set" do
+			it "returns false" do
+				Kernel.stub(:rand).and_return(7)
+				roll = Roll.new(10, 1)
+				expect(roll.strike?).to be_false
+			end
+		end
+
+		context "when result is equal to pins on the 2nd roll for the pin set" do
+			it "returns true" do
+				Kernel.stub(:rand).and_return(10)
+				roll = Roll.new(10, 2)
+				expect(roll.strike?).to be_false
+			end
+		end
+
+		context "when result is not equal to pins on the 2nd roll for the pin set" do
+			it "returns false" do
+				Kernel.stub(:rand).and_return(7)
+				roll = Roll.new(10, 2)
+				expect(roll.strike?).to be_false
+			end
+		end
+	end
+
 end
