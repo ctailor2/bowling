@@ -130,4 +130,10 @@ describe Frame do
 			it "NEEDS EXAMPLES ONCE BONUS ROUTINE IMPLEMENTED"
 		end
 	end
+
+	describe "#deactivate" do
+		it "deactivates the frame" do
+			expect{frame.deactivate}.to change{frame.active}.from(true).to(false)
+		end
+	end
 end

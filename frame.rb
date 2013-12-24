@@ -23,4 +23,8 @@ class Frame
 	def deactivate?
 		pins == 0 || rolls.length == max_rolls
 	end
+
+	def deactivate
+		self.active = false
+	end
 end
