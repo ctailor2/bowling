@@ -10,4 +10,8 @@ class Roll
 	def strike?
 		result == pins && pin_set_roll_count == 1
 	end
+
+	def spare?
+		result == pins && pin_set_roll_count == 2
+	end
 end
