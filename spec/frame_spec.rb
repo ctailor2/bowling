@@ -28,4 +28,11 @@ describe Frame do
 			expect(frame.pins).to eq(10)
 		end
 	end
+
+	describe "#roll" do
+		it "creates a roll in the rolls collection" do
+			frame.roll
+			expect(frame.rolls.first).to be_a(Roll)
+		end
+	end
 end

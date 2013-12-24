@@ -1,4 +1,4 @@
-# require_relative 'roll'
+require_relative 'roll'
 
 class Frame
 	attr_reader :rolls, :pins
@@ -6,5 +6,9 @@ class Frame
 	def initialize
 		@rolls = []
 		@pins = 10
+	end
+
+	def roll
+		rolls << Roll.new(pins)
 	end
 end
