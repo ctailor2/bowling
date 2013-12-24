@@ -1,8 +1,8 @@
 require_relative 'roll'
 
 class Frame
-	attr_reader :rolls, :bonus, :max_rolls
-	attr_accessor :pins, :active, :pin_set_roll_count, :score
+	attr_reader :rolls, :bonus
+	attr_accessor :pins, :active, :pin_set_roll_count, :score, :max_rolls
 
 	def initialize(bonus = false)
 		@rolls = []
@@ -58,5 +58,13 @@ class Frame
 		if active
 			self.pins = 10
 		end
+	end
+
+	def apply_bonus?
+		bonus && (has_strike? || has_spare?)
+	end
+
+	def apply_bonus
+		self.max_rolls = 3
 	end
 end

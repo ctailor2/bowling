@@ -222,33 +222,43 @@ describe Frame do
 		end
 	end
 
-	# describe "#apply_bonus?" do
-	# 	context "when frame is not bonus type" do
-	# 		it "returns false" do
-	# 			frame.roll
-	# 			expect(frame.apply_bonus?).to be_false
-	# 		end
-	# 	end
+	describe "#apply_bonus?" do
+		context "when frame is not bonus type" do
+			describe "when frame has either a strike or spare" do
+				it "returns false" do
+					Kernel.stub(:rand).and_return(10)
+					frame.roll
+					expect(frame.apply_bonus?).to be_false
+				end
+			end
+		end
 
-	# 	context "when frame is bonus type" do
-	# 		let(:frame) { Frame.new(true) }
+		context "when frame is bonus type" do
+			let(:frame) { Frame.new(true) }
 
-	# 		describe "when frame has either a strike or spare" do
-	# 			it "returns true" do
-	# 				Kernel.stub(:rand).and_return(10)
-	# 				frame.roll
-	# 				expect(frame.apply_bonus?).to be_true
-	# 			end
-	# 		end
+			describe "when frame has either a strike or spare" do
+				it "returns true" do
+					Kernel.stub(:rand).and_return(10)
+					frame.roll
+					expect(frame.apply_bonus?).to be_true
+				end
+			end
 
-	# 		describe "when frame has neither a strike or spare" do
-	# 			it "returns false" do
-	# 				Kernel.stub(:rand).and_return(4)
-	# 				frame.roll
-	# 				frame.roll
-	# 				expect(frame.apply_bonus?).to be_false
-	# 			end
-	# 		end
-	# 	end
-	# end
+			describe "when frame has neither a strike nor a spare" do
+				it "returns false" do
+					Kernel.stub(:rand).and_return(4)
+					frame.roll
+					frame.roll
+					expect(frame.apply_bonus?).to be_false
+				end
+			end
+		end
+	end
+
+	describe "#apply_bonus" do
+		it "sets the max rolls to 3" do
+			frame.apply_bonus
+			expect(frame.max_rolls).to eq(3)
+		end
+	end
 end
