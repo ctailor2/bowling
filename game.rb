@@ -16,4 +16,8 @@ class Game
 	def current_frame
 		frames.find { |frame| frame.active }
 	end
+
+	def roll
+		current_frame.roll
+	end
 end

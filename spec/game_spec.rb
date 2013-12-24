@@ -48,4 +48,11 @@ describe Game do
 			end
 		end
 	end
+
+	describe "#roll" do
+		it "rolls the current frame" do
+			expect(game.current_frame).to receive(:roll)
+			game.roll
+		end
+	end
 end
