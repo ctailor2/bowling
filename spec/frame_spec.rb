@@ -207,10 +207,11 @@ describe Frame do
 	end
 
 	describe "#reset_pins?" do
-		context "when the number of pins is 0" do
+		context "when the number of pins is 0 and autoreset is activated" do
 			it "returns true" do
 				Kernel.stub(:rand).and_return(10)
 				frame.roll
+				frame.apply_bonus
 				expect(frame.reset_pins?).to be_true
 			end
 		end
