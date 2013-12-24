@@ -217,4 +217,50 @@ describe Game do
 			game.score_all_frames
 		end
 	end
+
+	describe "running_score_upto" do
+		context "for frames without scores" do
+			describe "on the 3rd frame" do
+				it "does not calculate the cumulative score" do
+					Kernel.stub(:rand).and_return(10, 3, 6, 5, 5)
+					5.times do
+						game.roll
+					end
+					expect(game.running_score_upto(2)).to be_nil
+				end
+			end
+		end
+
+		context "for frames with scores" do
+			describe "on the 3rd frame" do
+				it "correctly calculates the cumulative score" do
+					Kernel.stub(:rand).and_return(10, 3, 6, 5, 5, 8)
+					6.times do
+						game.roll
+					end
+					expect(game.running_score_upto(2)).to eq(46)
+				end
+			end
+
+			describe "on the 7th frame" do
+				it "correctly calculates the cumulative score" do
+					Kernel.stub(:rand).and_return(10, 3, 6, 5, 5, 8, 2, 7, 1, 9, 0, 4, 3)
+					13.times do
+						game.roll
+					end
+					expect(game.running_score_upto(6)).to eq(87)
+				end
+			end
+
+			describe "on the 10th frame" do
+				it "correctly calculates the cumulative score" do
+					Kernel.stub(:rand).and_return(10, 3, 6, 5, 5, 8, 2, 7, 1, 9, 0, 4, 3, 10, 10, 2, 5)
+					17.times do
+						game.roll
+					end
+					expect(game.running_score_upto(9)).to eq(133)
+				end
+			end
+		end
+	end
 end

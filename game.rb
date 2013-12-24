@@ -26,7 +26,7 @@ class Game
 		frame = frames[index]
 		unless frame.active
 			subsequent_frames = frames[index + 1..-1]
-			if subsequent_frames.length > 1
+			if subsequent_frames.length > 0
 				subsequent_rolls = subsequent_frames.flat_map { |frame| frame.rolls }
 				if frame.has_strike?
 					if subsequent_rolls.length >= 2
@@ -43,11 +43,19 @@ class Game
 				frame.score = frame.rolls.map { |roll| roll.result }.inject(:+)
 			end
 		end
+		frame.score
 	end
 
 	def score_all_frames
 		frames.each_with_index do |frame, index|
 			score_frame(index)
+		end
+	end
+
+	def running_score_upto(index)
+		frame = frames[index]
+		if frame.score
+			frames[0..index].map { |frame| frame.score }.inject(:+)
 		end
 	end
 end
