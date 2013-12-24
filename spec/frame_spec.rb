@@ -4,16 +4,20 @@ describe Frame do
 	let(:frame) { Frame.new }
 
 	describe "#initialize" do
-		it "responds to rolls" do
+		it "responds to #rolls" do
 			expect(frame).to respond_to(:rolls)
 		end
 
-		it "responds to pins" do
+		it "responds to #pins" do
 			expect(frame).to respond_to(:pins)
 		end
 
-		it "responds to bonus" do
+		it "responds to #bonus" do
 			expect(frame).to respond_to(:bonus)
+		end
+
+		it "responds to #max_rolls" do
+			expect(frame).to respond_to(:max_rolls)
 		end
 	end
 
@@ -46,6 +50,12 @@ describe Frame do
 			specify "is true" do
 				expect(frame.bonus).to be_true	
 			end
+		end
+	end
+
+	describe "#max_rolls" do
+		it "starts at 2" do
+			expect(frame.max_rolls).to eq(2)
 		end
 	end
 
