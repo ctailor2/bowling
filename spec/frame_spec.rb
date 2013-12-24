@@ -146,4 +146,43 @@ describe Frame do
 			expect{frame.increment_pin_set_roll_count}.to change{frame.pin_set_roll_count}.by(1)
 		end
 	end
+
+	describe "#has_strike?" do
+		context "any of the rolls in the frame is a strike" do
+			it "returns true" do
+				Kernel.stub(:rand).and_return(10)
+				frame.roll
+				expect(frame.has_strike?).to be_true
+			end
+		end
+
+		context "none of the rolls in the frame is a strike" do
+			it "returns false" do
+				Kernel.stub(:rand).and_return(5)
+				frame.roll
+				frame.roll
+				expect(frame.has_strike?).to be_false
+			end
+		end
+	end
+
+	describe "#has_spare?" do
+		context "any of the rolls in the frame is a spare" do
+			it "returns true" do
+				Kernel.stub(:rand).and_return(5)
+				frame.roll
+				frame.roll
+				expect(frame.has_spare?).to be_true
+			end
+		end
+
+		context "none of the rolls in the frame is a strike" do
+			it "returns false" do
+				Kernel.stub(:rand).and_return(3)
+				frame.roll
+				frame.roll
+				expect(frame.has_spare?).to be_false
+			end
+		end
+	end
 end

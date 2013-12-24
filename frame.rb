@@ -39,4 +39,12 @@ class Frame
 	def increment_pin_set_roll_count
 		self.pin_set_roll_count += 1
 	end
+
+	def has_strike?
+		rolls.any? { |roll| roll.strike? }
+	end
+
+	def has_spare?
+		rolls.any? { |roll| roll.spare? }
+	end
 end
