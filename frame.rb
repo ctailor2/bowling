@@ -32,6 +32,7 @@ class Frame
 
 	def routine
 		adjust_pin_count
+		increment_pin_set_roll_count
 		deactivate if deactivate?
 	end
 
