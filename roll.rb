@@ -3,6 +3,6 @@ class Roll
 
 	def initialize(pins)
 		@pins = pins
-		@result
+		@result = Kernel.rand(0..pins)
 	end
 end
