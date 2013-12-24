@@ -27,6 +27,10 @@ describe Frame do
 		it "responds to #pin_set_roll_count" do
 			expect(frame).to respond_to(:pin_set_roll_count)
 		end
+
+		it "responds to #score" do
+			expect(frame).to respond_to(:score)
+		end
 	end
 
 	describe "#rolls" do
@@ -76,6 +80,12 @@ describe Frame do
 	describe "#pin_set_roll_count" do
 		it "starts at 1" do
 			expect(frame.pin_set_roll_count).to eq(1)
+		end
+	end
+
+	describe "#score" do
+		it "starts with no score" do
+			expect(frame.score).to be_nil
 		end
 	end
 
