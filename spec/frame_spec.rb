@@ -216,9 +216,39 @@ describe Frame do
 
 	describe "#reset_pins" do
 		it "resets the pins to 10" do
-			Kernel.stub(:rand).and_return(10)
+			Kernel.stub(:rand).and_return(7)
 			frame.roll
-			expect{frame.reset_pins}.to change{frame.pins}.from(0).to(10)
+			expect{frame.reset_pins}.to change{frame.pins}.from(3).to(10)
 		end
 	end
+
+	# describe "#apply_bonus?" do
+	# 	context "when frame is not bonus type" do
+	# 		it "returns false" do
+	# 			frame.roll
+	# 			expect(frame.apply_bonus?).to be_false
+	# 		end
+	# 	end
+
+	# 	context "when frame is bonus type" do
+	# 		let(:frame) { Frame.new(true) }
+
+	# 		describe "when frame has either a strike or spare" do
+	# 			it "returns true" do
+	# 				Kernel.stub(:rand).and_return(10)
+	# 				frame.roll
+	# 				expect(frame.apply_bonus?).to be_true
+	# 			end
+	# 		end
+
+	# 		describe "when frame has neither a strike or spare" do
+	# 			it "returns false" do
+	# 				Kernel.stub(:rand).and_return(4)
+	# 				frame.roll
+	# 				frame.roll
+	# 				expect(frame.apply_bonus?).to be_false
+	# 			end
+	# 		end
+	# 	end
+	# end
 end
