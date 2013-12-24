@@ -31,6 +31,10 @@ describe Frame do
 		it "responds to #score" do
 			expect(frame).to respond_to(:score)
 		end
+
+		it "responds to #autoreset" do
+			expect(frame).to respond_to(:autoreset)
+		end
 	end
 
 	describe "#rolls" do
@@ -86,6 +90,12 @@ describe Frame do
 	describe "#score" do
 		it "starts with no score" do
 			expect(frame.score).to be_nil
+		end
+	end
+
+	describe "#autoreset" do
+		it "starts deactivated" do
+			expect(frame.autoreset).to be_false
 		end
 	end
 
