@@ -74,4 +74,50 @@ describe Frame do
 			expect(frame.pins).to eq(3)
 		end
 	end
+
+	describe "#deactivate?" do
+		context "for non-bonus type frames" do
+			describe "when the number of rolls reaches max rolls" do
+				it "returns true" do
+					Kernel.stub(:rand).and_return(3)
+					frame.roll
+					frame.adjust_pin_count
+					frame.roll
+					frame.adjust_pin_count
+					expect(frame.deactivate?).to be_true
+				end
+			end
+
+			describe "when the number of rolls is less than max rolls" do
+				it "returns false" do
+					Kernel.stub(:rand).and_return(3)
+					frame.roll
+					frame.adjust_pin_count
+					expect(frame.deactivate?).to be_false
+				end
+			end
+
+			describe "when the number of pins is zero" do
+				it "returns true" do
+					Kernel.stub(:rand).and_return(10)
+					frame.roll
+					frame.adjust_pin_count
+					expect(frame.deactivate?).to be_true
+				end
+			end
+
+			describe "when the number of pins is greater than zero" do
+				it "returns false" do
+					Kernel.stub(:rand).and_return(3)
+					frame.roll
+					frame.adjust_pin_count
+					expect(frame.deactivate?).to be_false
+				end
+			end
+		end
+
+		context "for bonus type frames" do
+			it "NEEDS EXAMPLES ONCE BONUS ROUTINE IMPLEMENTED"
+		end
+	end
 end

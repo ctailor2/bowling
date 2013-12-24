@@ -18,4 +18,8 @@ class Frame
 	def adjust_pin_count
 		self.pins -= rolls.last.result
 	end
+
+	def deactivate?
+		pins == 0 || rolls.length == max_rolls
+	end
 end
