@@ -10,4 +10,10 @@ describe Roll do
 			expect(roll).to respond_to(:result)
 		end
 	end
+
+	describe "#pins" do
+		it "returns the number of pins available to the roll" do
+			expect(roll.pins).to eq(10)
+		end
+	end
 end
