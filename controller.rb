@@ -1,7 +1,35 @@
 require_relative 'game'
 
+helpers do
+	def new_game
+		session[:game] = Game.new
+	end
+
+	def current_game
+		session[:game]
+	end
+
+	def game_on?
+		!session[:game].nil?
+	end
+
+	def reset
+		session.clear
+	end
+end
+
 get '/' do
-	game = Game.new
-	@frames = game.frames
+	reset
+	erb :index
+end
+
+post '/' do
+	reset
+	new_game
+	erb :index
+end
+
+post '/' do
+	current_game.roll
 	erb :index
 end
