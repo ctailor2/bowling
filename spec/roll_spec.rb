@@ -123,4 +123,30 @@ describe Roll do
 			end
 		end
 	end
+
+	describe "#display" do
+		context "when it is a strike" do
+			it "should be displayed as 'X'" do
+				Kernel.stub(:rand).and_return(10)
+				roll = Roll.new(10, 1)
+				expect(roll.display).to eq("X")
+			end
+		end
+
+		context "when it is a spare" do
+			it "should be displayed as '/'" do
+				Kernel.stub(:rand).and_return(10)
+				roll = Roll.new(10, 2)
+				expect(roll.display).to eq("/")
+			end
+		end
+
+		context "when it is neither a strike or spare" do
+			it "should be displayed as '#'" do
+				Kernel.stub(:rand).and_return(7)
+				roll = Roll.new(10, 1)
+				expect(roll.display).to eq(7)
+			end
+		end
+	end
 end

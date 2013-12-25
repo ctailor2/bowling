@@ -14,4 +14,14 @@ class Roll
 	def spare?
 		result == pins && pin_set_roll_count == 2
 	end
+
+	def display
+		if strike?
+			"X"
+		elsif spare?
+			"/"
+		else
+			result
+		end
+	end
 end
