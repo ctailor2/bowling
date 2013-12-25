@@ -58,4 +58,8 @@ class Game
 			frames[0..index].map { |frame| frame.score }.inject(:+)
 		end
 	end
+
+	def over?
+		frames.none? { |frame| frame.active }
+	end
 end

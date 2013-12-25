@@ -263,4 +263,22 @@ describe Game do
 			end
 		end
 	end
+
+	describe "#over?" do
+		it "returns true when there are no remaining active frames" do
+			Kernel.stub(:rand).and_return(10)
+			12.times do
+				game.roll
+			end
+			expect(game.over?).to be_true
+		end
+
+		it "returns false when there are remaining active frames" do
+			Kernel.stub(:rand).and_return(5)
+			5.times do
+				game.roll
+			end
+			expect(game.over?).to be_false
+		end
+	end
 end
