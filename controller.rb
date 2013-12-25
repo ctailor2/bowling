@@ -16,6 +16,10 @@ helpers do
 	def reset
 		session.clear
 	end
+
+	def frames
+		current_game.frames
+	end
 end
 
 get '/' do
@@ -29,7 +33,7 @@ post '/' do
 	erb :index
 end
 
-post '/' do
+post '/roll' do
 	current_game.roll
 	erb :index
 end
