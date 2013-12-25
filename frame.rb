@@ -57,9 +57,8 @@ class Frame
 	end
 
 	def reset_pins
-		if active
-			self.pins = 10
-		end
+		self.pins = 10
+		self.pin_set_roll_count = 1
 	end
 
 	def apply_bonus?
