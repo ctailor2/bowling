@@ -17,20 +17,20 @@
 						<% if frame.bonus %>
 							<div class="frame">
 								<div class="header"><%= index + 1 %></div>
-								<div class="roll"></div>
+								<div class="roll"><%= frame.rolls[0].display %></div>
 								<div class="border"></div>
-								<div class="roll"></div>
+								<div class="roll"><%= frame.rolls[1].display if frame.rolls[1] %></div>
 								<div class="border"></div>
-								<div class="roll"></div>
-								<div class="score"></div>
+								<div class="roll"><%= frame.rolls[2].display if frame.rolls[2] %></div>
+								<div class="score"><%= current_game.running_score_upto(index) %></div>
 							</div>
 						<% else %>
 							<div class="frame">
 								<div class="header"><%= index + 1 %></div>
-								<div class="roll"></div>
+								<div class="roll"><%= frame.rolls[0].display %></div>
 								<div class="border"></div>
-								<div class="roll"></div>
-								<div class="score"></div>
+								<div class="roll"><%= frame.rolls[1].display if frame.rolls[1] %></div>
+								<div class="score"><%= current_game.running_score_upto(index) %></div>
 							</div>
 						<% end %>
 					<% end %>
