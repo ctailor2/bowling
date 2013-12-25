@@ -5,6 +5,29 @@
 	</head>
 	<body>
 		<div class="container">
+			<div class="game">
+				<% @frames.each_with_index do |frame, index| %>
+					<% if frame.bonus %>
+						<div class="frame">
+							<div class="header"><%= index + 1 %></div>
+							<div class="roll"></div>
+							<div class="border"></div>
+							<div class="roll"></div>
+							<div class="border"></div>
+							<div class="roll"></div>
+							<div class="score"></div>
+						</div>
+					<% else %>
+						<div class="frame">
+							<div class="header"><%= index + 1 %></div>
+							<div class="roll"></div>
+							<div class="border"></div>
+							<div class="roll"></div>
+							<div class="score"></div>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
 		</div>
 	</body>
 </html>
