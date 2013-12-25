@@ -8,7 +8,7 @@
 			<h1>Welcome to Bowling!</h1>
 
 			<form class="button" action="/" method="POST">
-				<input type="submit" value="Start Game!">
+				<input type="submit" value="New Game!">
 			</form>
 
 			<% if game_on? %>
@@ -36,9 +36,13 @@
 					<% end %>
 				</div>
 
-				<form class="button" action="/roll" method="POST">
-					<input type="submit" value="Roll!">
-				</form>
+				<% unless current_game.over? %>
+					<form class="button" action="/roll" method="POST">
+						<input type="submit" value="Roll!">
+					</form>
+				<% else %>
+					<h3>Game Over</h3>
+				<% end %>
 			<% end %>
 
 		</div>
