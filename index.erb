@@ -5,6 +5,12 @@
 	</head>
 	<body>
 		<div class="container">
+			<h1>Welcome to Bowling!</h1>
+
+			<form class="button" action="/" method="POST">
+				<input type="submit" value="Start Game!">
+			</form>
+
 			<div class="game">
 				<% @frames.each_with_index do |frame, index| %>
 					<% if frame.bonus %>
@@ -28,6 +34,11 @@
 					<% end %>
 				<% end %>
 			</div>
+
+			<form class="button" action="/roll" method="POST">
+				<input type="submit" value="Roll!">
+			</form>
+
 		</div>
 	</body>
 </html>

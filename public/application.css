@@ -2,9 +2,12 @@
   margin: 20px auto;
   width: 700px;
   padding: 0px 20px 20px 20px;
+  text-align: center;
 }
 
 .game {
+	margin-top: 20px;
+	margin-bottom: 20px;
 	border-left: 2px solid black;
 	border-top: 2px solid black;
 	border-bottom: 2px solid black;
@@ -41,4 +44,8 @@
 	border-top: 2px dotted black;
 	clear: left;
 	text-align: center;
+}
+
+.button {
+	clear: left;
 }
