@@ -18,8 +18,10 @@ class Game
 	end
 
 	def roll
-		current_frame.roll
-		score_all_frames
+		unless over?
+			current_frame.roll
+			score_all_frames
+		end
 	end
 
 	def score_frame(index)
